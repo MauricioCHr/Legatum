@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+    --color-navy: #111c33;
+    --color-navy-light: #1c2a47;
+    --color-electric: #2f5f96;
+    --color-gold: #d4a24c;
+    --color-canvas: #f1f3f8;
+    --color-background: #f7f8fb;
+    --color-foreground: #202b3c;
+    --color-card: #ffffff;
+    --color-card-foreground: #202b3c;
+    --color-popover: #ffffff;
+    --color-popover-foreground: #202b3c;
+    --color-primary: #315f91;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #eef1f6;
+    --color-secondary-foreground: #34445a;
+    --color-muted: #f0f2f6;
+    --color-muted-foreground: #6b7789;
+    --color-accent: #eaf1fa;
+    --color-accent-foreground: #315f91;
+    --color-destructive: #c34242;
+    --color-success: #2f855a;
+    --color-warning: #c08728;
+    --color-info: #3478a6;
+    --color-border: #e4e9f0;
+    --color-input: #d6dee8;
+    --color-ring: #648ab2;
+    --color-sidebar: #101d35;
+    --color-sidebar-foreground: #e8eef8;
+    --color-sidebar-muted: #9baac0;
+    --color-sidebar-primary: #78a5d6;
+    --color-sidebar-primary-foreground: #ffffff;
+    --color-sidebar-accent: #1d2c47;
+    --color-sidebar-accent-foreground: #ffffff;
+    --color-sidebar-border: #2b3a54;
+    --color-sidebar-ring: #78a5d6;
+    --color-chart-1: #315f91;
+    --color-chart-2: #3d91a5;
+    --color-chart-3: #243f63;
+    --color-chart-4: #8299ba;
+    --color-chart-5: #c08728;
+    --radius: 0.625rem;
+}
+
+:root {
+    color-scheme: light;
+    --chart-1: #315f91;
+    --chart-2: #3d91a5;
+    --chart-3: #243f63;
+    --chart-4: #8299ba;
+    --chart-5: #c08728;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@utility animate-fade-up {
+    animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@layer base {
+    body {
+        @apply bg-background font-sans text-foreground;
+    }
+}
+
+@media screen {
+    .app-content table {
+        width: 100%;
+        font-size: 0.875rem;
+    }
+
+    .app-content table :is(th, td) {
+        padding: 0.75rem 1rem;
+    }
+
+    .app-content table th {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .app-content table td {
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+
+    .app-content table td :where(span, p, a) {
+        font-size: max(0.75rem, 0.9em);
+        line-height: 1.4;
+    }
+
+    .app-content :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+        max-width: 100%;
+        min-height: 2.75rem;
+        font-size: 0.9375rem;
+        line-height: 1.4;
+    }
+
+    .app-content textarea {
+        min-height: 5.5rem;
+    }
+
+    .app-content form label {
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+
+    .app-content form :is(button[type="submit"], button[type="button"]) {
+        min-height: 2.625rem;
+    }
+
+    .app-content button[class*="px-"],
+    .app-content a[class*="bg-"] {
+        min-height: 2.5rem;
+    }
+
+    .app-content table button {
+        min-height: 2.5rem;
+    }
+
+    .app-content [class~="max-w-md"]:has(form) {
+        max-width: 42rem;
+    }
+
+    .app-content [class~="max-w-lg"]:has(form) {
+        max-width: 48rem;
+    }
+}
